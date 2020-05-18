@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+
+<head runat="server">
+<title>| ProNutX</title>
+    <asp:ContentPlaceHolder id="Title" runat="server">
+    </asp:ContentPlaceHolder>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="~/Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="page">
+<div id="header">
+<h1 ><!-- Contained the primary h1 element for the page -->
+         <asp:ContentPlaceholder ID="h1" runat="server">
+		 </asp:ContentPlaceholder>
+</h1>
+
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="~/Default.aspx" runat="server">Home</a></li>
+<li><a href="~/About.aspx" runat="server">About</a></li>
+<li><a href="~/ContactUs.aspx" runat="server">Contact Us</a></li>
+<li><a href="~/Products.aspx" runat="server">Products</a></li>
+<li><a href="~/Login.aspx" runat="server">Login</a></li>
+
+</ul>
+</div>
+
+<div id="content">
+<h2><!-- Contained the primary h2 element for the page -->
+         <asp:ContentPlaceholder ID="h2" runat="server">
+          </asp:ContentPlaceholder>
+</h2>
+<!-- Contained the primary h1 element for the page -->
+         <asp:ContentPlaceholder ID="ContentPlaceholder1" runat="server">
+		 </asp:ContentPlaceholder>
+</div>
+</div>
+    </form>
+</body>
+    <div>
+    <footer>
+        <a href="http://validator.w3.org/check?uri=referer">Validate HTML</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Validate CSS</a> | <a href="Admin/Default.aspx">Admin</a>
+      
+    </footer>
+        </div>
+</html>

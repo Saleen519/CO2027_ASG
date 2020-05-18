@@ -18,34 +18,7 @@ namespace WebApplication2
 
         }
 
-        protected void btnRegister_Click(object sender, EventArgs e)
-        {
-            //create a dbcontext that specified the connection string
-            var identityDbContext = new IdentityDbContext("db_1921760_co5027_asg");
-            //create role store and role manager
-            var roleStore = new RoleStore<IdentityRole>(identityDbContext);
-            var roleManager = new RoleManager<IdentityRole>(roleStore);
-            //create user store and user manager
-            var userStore = new UserStore<IdentityUser>(identityDbContext);
-            var manager = new UserManager<IdentityUser>(userStore);
-            //create user
-            var user = new IdentityUser() { UserName = txtRegEmail.Text, Email = txtRegEmail.Text };
-            IdentityResult result = manager.Create(user, txtRegPassword.Text);
-            IdentityRole adminRole = new IdentityRole("admin");
-            roleManager.Create(adminRole);
-            if (result.Succeeded)
-            {
-                manager.AddToRole(user.Id, "admin");
-                manager.Update(user);
-                litRegisterError.Text = "Registration successful";
-            }
-            else
-            {
-                litRegisterError.Text = "An error has occurred: " + result.Errors.FirstOrDefault();
-            }
-        }
-
-            protected void BtnLogin_Click(object sender, EventArgs e)
+        protected void BtnLogin_Click(object sender, EventArgs e)
         {
             var identityDbContext = new IdentityDbContext("db_1921760_co5027_asg");
             var userStore = new UserStore<IdentityUser>(identityDbContext);
@@ -69,12 +42,6 @@ namespace WebApplication2
             authenticationManager.SignIn(new AuthenticationProperties() { }, userIdentity);
             //Note: user is automatically redirected if trying to access another page
         }
-    
 
-          internal class AuthenticationProperties
-          {
-            public AuthenticationProperties()
-          {
-        }
     }
-}
+}      
